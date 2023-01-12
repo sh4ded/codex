@@ -1,0 +1,9 @@
+<div class="flex flex-row flex-grow justify-around">
+    <input #myInput type="text" 
+name="search" 
+placeholder="Search for books"
+(keyup.enter)="doSearch(myInput.value)"
+class="w-9/12">
+    <button (click)="doSearch(myInput.value)" type="submit"
+    class="w-32">Search</button>
+</div>

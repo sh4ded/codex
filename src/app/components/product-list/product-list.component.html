@@ -1,0 +1,16 @@
+<div class="h-full flex-grow">
+<ul role="list" class="p-6 flex flex-row w-5/6 flex-wrap justify-start">
+      <li *ngFor="let product of products" class="flex flex-col py-4 w-48 rounded-md border border-gray-600 p-2 ml-2 mt-2 text-center">
+        <div class="self-center">
+        <img class="h-32 w-32 rounded-full" src="{{product.imageUrl}}" alt="" />
+        </div>
+        <div class="ml-3 mt-4">
+          <p class="text-sm font-medium text-slate-900 h-10 overflow-hidden">{{product.name}}</p>
+          <p class="text-sm text-slate-500 truncate mt-1">{{product.unitPrice | currency:'INR'}}</p>
+        </div>
+      </li>
+  </ul>
+</div>
+  <h4 *ngIf="products?.length == 0" role="alert">
+    Sorry! No books were found!
+  </h4>
