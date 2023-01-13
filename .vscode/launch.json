@@ -3,6 +3,19 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch CodexApplication",
+      "request": "launch",
+      "mainClass": "com.binarybros.codex.CodexApplication"
+    },
+    {
+      "type": "java",
+      "name": "Launch CodexApplication",
+      "request": "launch",
+      "mainClass": "com.binarybros.codex.CodexApplication",
+      "projectName": "codex"
+    },
+    {
       "name": "ng serve",
       "type": "pwa-chrome",
       "request": "launch",
