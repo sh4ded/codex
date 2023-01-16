@@ -1,0 +1,11 @@
+<div class="self-center">
+  <img class="h-32 w-32 rounded-full" src="{{ product.imageUrl }}" alt="" />
+  </div>
+  <div class="ml-3 mt-4">
+    <p class="text-sm font-medium text-slate-900 h-10 overflow-hidden">{{ product.name }}</p>
+    <p class="text-sm text-slate-500 truncate mt-1">{{ product.unitPrice | currency:'INR' }}</p>
+    <a href="#">Add to cart</a>
+    <h4>Description</h4>
+    <p>{{ product.description }}</p>
+    <a routerLink="/products">Back to Product List</a>
+  </div>
