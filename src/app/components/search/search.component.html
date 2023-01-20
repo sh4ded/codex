@@ -1,9 +1,12 @@
-<div class="flex flex-row flex-grow justify-around">
+<div class="form-header">
+
     <input #myInput type="text" 
-name="search" 
-placeholder="Search for books"
-(keyup.enter)="doSearch(myInput.value)"
-class="w-9/12">
-    <button (click)="doSearch(myInput.value)" type="submit"
-    class="w-32">Search</button>
+           placeholder="Search for products ..."
+           class="au-input au-input-xl"
+           (keyup.enter)="doSearch(myInput.value)"  />
+
+    <button (click)="doSearch(myInput.value)" class="au-btn-submit">
+        Search
+    </button>
+
 </div>

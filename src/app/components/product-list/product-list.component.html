@@ -1,34 +1,76 @@
-<div class="h-full flex-grow">
-<ul role="list" class="p-6 flex flex-row w-5/6 flex-wrap justify-start">
-      <li *ngFor="let product of products" class="flex flex-col py-4 w-48 rounded-md border border-gray-600 p-2 ml-2 mt-2 text-center">
-        <div class="self-center">
-          <a routerLink="/products/{{ product.id }}">
-        <img class="h-32 w-32 rounded-full" src="{{product.imageUrl}}" alt="" />
-            </a>
-        </div>
-        <div class="ml-3 mt-4">
-          <a routerLink="/products/{{ product.id }}">
-          <p class="text-sm font-medium text-slate-900 h-10 overflow-hidden">{{product.name}}</p>
-        </a>
-          <p class="text-sm text-slate-500 truncate mt-1">{{product.unitPrice | currency:'INR'}}</p>
-        </div>
-      </li>
-  </ul>
-  <ngb-pagination
-    [(page)]="pageNumber"
-    [collectionSize]="totalElements"
-    [pageSize]="pageSize"
-    (pageChange)="handleListProducts()"></ngb-pagination>
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
 
-  <div>
-    <select (change)="updatePageSize($any($event.target).value)">
-      <option selected="true" value="5">5</option>
-      <option>10</option>
-      <option>20</option>
-      <option>50</option>
-    </select>
-  </div>
+                <!-- loop over the collection of products -->
+                <div *ngFor="let tempProduct of products" class="col-md-3">
+
+                    <div class="product-box">
+
+                        <a routerLink="/products/{{ tempProduct.id }}">
+                            <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
+                        </a>
+
+                        <a routerLink="/products/{{ tempProduct.id }}">
+                            <h1>{{ tempProduct.name }}</h1>
+                        </a>
+                        
+                        <div class="price">{{ tempProduct.unitPrice | currency:'USD' }}</div>
+                        <a href="#" class="primary-btn">Add to cart</a>
+                    </div>
+
+                </div>
+
+                <!-- if products empty then display a message-->
+                <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No products found.
+                </div>
+
+            </div>
+
+            <!-- begin footer -->
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6"></div>
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-9" style="padding-left: 30%">
+                            
+                                <ngb-pagination [(page)]="pageNumber"
+                                                [pageSize]="pageSize"
+                                                [collectionSize]="totalElements"
+                                                (pageChange)="listProducts()">
+
+                                </ngb-pagination>
+
+                            </div>
+
+                            <div class="col-md-3 mt-2" style="text-align: right;">
+                                <span class="mr-2">Page Size</span>
+
+                                <select (change)="updatePageSize($any($event.target).value)">
+                                    <option selected="true">5</option>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>50</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end footer -->
+
+        </div>
+    </div>
 </div>
-  <h4 *ngIf="products?.length == 0" role="alert">
-    Sorry! No books were found!
-  </h4>
+
+
+
+
+
+
