@@ -2,7 +2,7 @@
 
 2. run sql scripts
 
-3. open backend/codex in eclipse
+3. open codex-backend in eclipse
 
 4. install tomcat
 
